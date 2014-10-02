@@ -1,4 +1,4 @@
-define users::ssh_authorized_keys($user, $home, $group, $ssh_key) {
+define users::ssh_authorized_keys($user, $home, $group, $ssh_key=undef) {
 
     if(!defined(Ssh_authorized_keys[$user])) {
         file { "$home/.ssh":
