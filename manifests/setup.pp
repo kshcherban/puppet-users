@@ -46,16 +46,17 @@ define users::setup($allowdupe=undef, $attribute_membership=undef, $attributes=u
             }
             if ($customhome) {
                 users::custom_home { "${name}_customhome":
-                    user => $name,
-                    home => $home,
-                    group  => $group,
+                    user    => $name,
+                    home    => $home,
+                    group   => $group,
                 }
             } else {
                 if ($ensure == "present") {
                     users::ssh_authorized_keys { "${name}_ssh_authorized_keys":
-                        user => $name,
-                        home => $home,
-                        group  => $group,
+                        user    => $name,
+                        home    => $home,
+                        group   => $group,
+                        ssh_key => $ssh_key,
                     }
                 }
             }
