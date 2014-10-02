@@ -5,7 +5,8 @@ define users::setup($allowdupe=undef, $attribute_membership=undef, $attributes=u
     $membership=undef, $password=undef, $password_max_age=undef,
     $password_min_age=undef, $profile_membership=undef, $profiles=undef,
     $project=undef, $provider=undef, $role_membership=undef,
-    $roles=undef, $shell=undef, $system=undef, $uid=undef, $customhome=false) {
+    $roles=undef, $shell=undef, $system=undef, $uid=undef, $customhome=false,
+    $ssh_key=undef) {
     if(!defined(User[$name])) {
         user { $name :
                 allowdupe => $allowdupe,
