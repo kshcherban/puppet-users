@@ -1,5 +1,5 @@
 class users(
-	$hash       = undef,
+    $hash       = undef,
     $usergroup  = undef,
     $account    = undef
 ) {
@@ -30,10 +30,7 @@ class users(
     if $usergroup {
         users::create_group { $usergroup: }
     }
-
-#	if $hash {
-#        create_resources(users::setup, $hash)
-#	} else {
-#		notify { "no data for resource '$name' title '$title'": }
-#	}
+    if $hash {
+        create_resources(users::setup, $hash)
+    }
 }
