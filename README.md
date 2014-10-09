@@ -1,7 +1,7 @@
 Users
 =========
 
-Puppet users module to menage users from hiera.
+Puppet users module to manage users from hiera.
 Very slightly based on [mthibaut module] and heavily utilizes native puppet
 [user] class.
 
