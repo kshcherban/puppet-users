@@ -5,13 +5,13 @@ define users::ssh_authorized_keys($user, $home, $group, $ssh_key) {
             ensure  => directory,
             owner   => $user,
             group   => $group,
-            mode    => 700
+            mode    => '0700',
         }
         if $ssh_key {
             file { "$home/.ssh/authorized_keys":
                 ensure  => present,
                 content => $ssh_key,
-                mode    => 600,
+                mode    => '0600',
                 owner   => $user,
                 group   => $group
             }
@@ -19,7 +19,7 @@ define users::ssh_authorized_keys($user, $home, $group, $ssh_key) {
             file { "$home/.ssh/authorized_keys":
                 ensure  => present,
                 source  => ["puppet:///modules/users/$user.pub", "puppet:///modules/users/$user/.ssh/authorized_keys", "puppet:///modules/users/default.pub"],
-                mode    => 600,
+                mode    => '0600',
                 owner   => $user,
                 group   => $group
             }

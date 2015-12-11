@@ -4,7 +4,7 @@ define users::custom_home($user, $group, $home) {
             ensure  => directory,
             owner   => $user,
             group   => $group,
-            mode    => 640,
+            mode    => '0640',
             recurse => remote,
             source  => "puppet:///modules/users/$user"
         }
