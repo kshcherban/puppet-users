@@ -1,7 +1,7 @@
 class users(
     $hash       = undef,
-    $usergroup  = undef,
-    $account    = undef
+    $groupname  = undef,
+    $account    = undef,
 ) {
 # Create users for each passed name
     define users::create_user {
@@ -27,8 +27,8 @@ class users(
     if $account {
         users::create_user { $account: }
     }
-    if $usergroup {
-        users::create_group { $usergroup: }
+    if $groupname {
+        users::create_group { $groupname: }
     }
     if $hash {
         create_resources(users::setup, $hash)
